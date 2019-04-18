@@ -4,14 +4,14 @@ import java.util.List;
 
 
 public class Controller implements IRiverCrossingController{
-	List<ICrosser> boatCrossers=new ArrayList<ICrosser>();
-	List<ICrosser> rightBankCrosser=new ArrayList<ICrosser>();
-	List<ICrosser> leftBankCrossers=new ArrayList<ICrosser>();
-	/*String[] instructions=null;*/
-	
+	private List<ICrosser> boatRiders=new ArrayList<ICrosser>();
+	private List<ICrosser> rightBankCrossers=new ArrayList<ICrosser>();
+	private List<ICrosser> leftBankCrossers=new ArrayList<ICrosser>();
+	private boolean isbBoatOnLeft=true;
+	private int CrossCount=0;
 	
 	 private static Controller A;
-	 
+	 private ICrossingStrategy stra;
 	 private Controller  () {}
 	 public static Controller  getInstance() {
 		 if (A == null)
@@ -24,58 +24,57 @@ public class Controller implements IRiverCrossingController{
 	
 	@Override
 	public void newGame(ICrossingStrategy gameStrategy) {
-		// TODO Auto-generated method stub
+		stra=gameStrategy;
 		
 	}
 
 	@Override
 	public void resetGame() {
-		// TODO Auto-generated method stub
 		
+		CrossCount=0;
 	}
 
 	@Override
 	public String[] getInstructions() {
-		// TODO Auto-generated method stub
-		return null;
+		return stra.getInstructions();
 	}
 
 	@Override
 	public List<ICrosser> getCrossersOnRightBank() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return rightBankCrossers;
 	}
 
 	@Override
 	public List<ICrosser> getCrossersOnLeftBank() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return leftBankCrossers;
 	}
 
 	@Override
 	public boolean isBoatOnTheLeftBank() {
-		// TODO Auto-generated method stub
-		return false;
+		return isbBoatOnLeft;
 	}
 
 	@Override
 	public int getNumberOfSails() {
-		// TODO Auto-generated method stub
-		return 0;
+		return CrossCount;
 	}
 
+	
 	@Override
 	public boolean canMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
-		// TODO Auto-generated method stub
+		boolean locala,localb;
+		/*if(fromLeftToRightBank)
+		locala=stra.isValid(rightBankCrossers, leftBankCrossers , crossers);
+		localb=stra.isValid(rightBankCrossers, leftBankCrossers , crossers);*/
+	
 		return false;
 	}
 
-	@Override
 	public void doMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
-		// TODO Auto-generated method stub
 		
 	}
-
 	@Override
 	public boolean canUndo() {
 		// TODO Auto-generated method stub
