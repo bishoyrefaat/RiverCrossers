@@ -1,10 +1,9 @@
 import java.awt.image.BufferedImage;
 
-public class Carnivorous extends Crosser implements ICrosser {
+public class Carnivorous extends Crosser {
 
 	@Override
 	public boolean canSail() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

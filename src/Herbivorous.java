@@ -1,6 +1,6 @@
 import java.awt.image.BufferedImage;
 
-public class Herbivorous extends Crosser implements ICrosser {
+public class Herbivorous extends Crosser {
 
 	@Override
 	public boolean canSail() {
