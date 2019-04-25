@@ -9,9 +9,11 @@ public class Controller implements IRiverCrossingController{
 	private List<ICrosser> leftBankCrossers=new ArrayList<ICrosser>();
 	private boolean isbBoatOnLeft=true;
 	private int CrossCount=0;
+	private ICrossingStrategy stra;
+	// must save last 5 and memnto arraylist
+	
 	
 	 private static Controller A;
-	 private ICrossingStrategy stra;
 	 private Controller  () {}
 	 public static Controller  getInstance() {
 		 if (A == null)
@@ -24,14 +26,17 @@ public class Controller implements IRiverCrossingController{
 	
 	@Override
 	public void newGame(ICrossingStrategy gameStrategy) {
+		CrossCount=0;
 		stra=gameStrategy;
+		leftBankCrossers=stra.getInitialCrossers();
 		
 	}
 
 	@Override
 	public void resetGame() {
-		
 		CrossCount=0;
+		leftBankCrossers=stra.getInitialCrossers();
+		
 	}
 
 	@Override
@@ -57,22 +62,25 @@ public class Controller implements IRiverCrossingController{
 	}
 
 	@Override
-	public int getNumberOfSails() {
+	 public int getNumberOfSails() {
 		return CrossCount;
 	}
 
 	
 	@Override
 	public boolean canMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
-		boolean locala,localb;
+		//boolean locala,localb;
 		/*if(fromLeftToRightBank)
 		locala=stra.isValid(rightBankCrossers, leftBankCrossers , crossers);
 		localb=stra.isValid(rightBankCrossers, leftBankCrossers , crossers);*/
 	
 		return false;
 	}
-
+@Override
 	public void doMove(List<ICrosser> crossers, boolean fromLeftToRightBank) {
+	
+		
+		
 		
 	}
 	@Override
