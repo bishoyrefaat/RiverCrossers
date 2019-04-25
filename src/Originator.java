@@ -2,19 +2,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Originator {
-	private List<ICrosser> boatRiders=new ArrayList<ICrosser>();
+	private Boolean isBoatOnLeft;
 	private List<ICrosser> rightBankCrossers=new ArrayList<ICrosser>();
 	private List<ICrosser> leftBankCrossers=new ArrayList<ICrosser>();
 
    public void setState(List<ICrosser> rightBankCrossers, List<ICrosser> leftBankCrossers,
-			List<ICrosser> boatRiders){
-		this.boatRiders=boatRiders;
+			boolean isBoatOnLeft){
+		this.isBoatOnLeft=isBoatOnLeft;
 		this.rightBankCrossers=rightBankCrossers;
 		this.leftBankCrossers=leftBankCrossers;
    }
 
-   public List<ICrosser> getStateBoat() {
-		return boatRiders;
+   public boolean getStateBoat() {
+		return isBoatOnLeft;
 	}
 	public List<ICrosser> getStateLeft() {
 		return leftBankCrossers;
@@ -25,11 +25,11 @@ public class Originator {
 
 
    public Memento saveStateToMemento(){
-      return new Memento(rightBankCrossers,leftBankCrossers,boatRiders);
+      return new Memento(rightBankCrossers,leftBankCrossers,isBoatOnLeft);
    }
 
    public void getStateFromMemento(Memento memento){
-       boatRiders=memento.getStateBoat();
+	   isBoatOnLeft=memento.getStateBoat();
 		rightBankCrossers=memento.getStateRight();
 		leftBankCrossers=memento.getStateLeft();
    }

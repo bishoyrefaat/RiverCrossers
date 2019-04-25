@@ -2,18 +2,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Memento {
-private List<ICrosser> boatRiders;
+//private List<ICrosser> boatRiders;
+	private Boolean isBoatOnLeft;
 private List<ICrosser> rightBankCrossers;
 private List<ICrosser> leftBankCrossers;
 public Memento(List<ICrosser> rightBankCrossers, List<ICrosser> leftBankCrossers,
-		List<ICrosser> boatRiders) {
-	this.boatRiders=boatRiders;
+		boolean isBoatOnLeft) {
+	this.isBoatOnLeft=isBoatOnLeft;
 	this.rightBankCrossers=rightBankCrossers;
 	this.leftBankCrossers=leftBankCrossers;
 	
 }
-public List<ICrosser> getStateBoat() {
-	return boatRiders;
+public boolean getStateBoat() {
+	return isBoatOnLeft;
 }
 public List<ICrosser> getStateLeft() {
 	return leftBankCrossers;

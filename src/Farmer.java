@@ -1,6 +1,6 @@
 import java.awt.image.BufferedImage;
 
-public class Farmer extends Crosser implements ICrosser{
+public class Farmer extends Crosser{
 
 	
 	
